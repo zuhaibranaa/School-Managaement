@@ -4,13 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Course;
 
 class status extends Model
 {
     use HasFactory;
-    public function properties()
+    public function Course()
     {
-        return $this->hasMany('course');
+        return $this->hasMany('Course');
+    }
+    public function User()
+    {
+        return $this->hasMany('users');
     }
 }

@@ -14,6 +14,7 @@ class CreateCoursesTable extends Migration
     public function up()
     {
         Schema::create('courses', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
             $table->string('image');
             $table->string('Course_Name');
@@ -25,9 +26,9 @@ class CreateCoursesTable extends Migration
             $table->unsignedBigInteger('Status_ID')->unsigned();
             $table->timestamps();
         });
-        // Schema::table('courses', function($table) {
-        //     $table->foreign('Status_ID')->references('id')->on('statuses')->onDelete('cascade');
-        // });
+        Schema::table('courses', function (Blueprint $table) {
+            $table->foreign('Status_ID')->references('id')->on('statuses')->onDelete('cascade');
+        });
     }
 
     /**

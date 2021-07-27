@@ -12,8 +12,13 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
     public function Role()
     {
-        $this->hasOne('role');
+        return $this->hasOne('Roles');
     }
+    public function status()
+    {
+        return $this->hasOne('status');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Admission extends Model
 {
     use HasFactory;
+    public function status()
+    {
+        $this->hasOne('statuses');
+    }
 }

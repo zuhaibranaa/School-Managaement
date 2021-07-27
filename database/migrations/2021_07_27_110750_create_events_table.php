@@ -14,13 +14,17 @@ class CreateEventsTable extends Migration
     public function up()
     {
         Schema::create('events', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
             $table->string('image');
             $table->string('name');
             $table->string('start_date');
             $table->string('Location');
-            $table->integer('status');
+            $table->unsignedBigInteger('status')->unsigned();
             $table->timestamps();
+        });
+        Schema::table('events', function (Blueprint $table) {
+            $table->foreign('status')->references('id')->on('statuses')->onDelete('cascade');
         });
     }
 
