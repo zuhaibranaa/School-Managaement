@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Event;
 
 class EventsController extends Controller
 {
@@ -13,7 +14,8 @@ class EventsController extends Controller
      */
     public function index()
     {
-        //
+        $values = Event::all();
+        return $values;
     }
 
     /**
@@ -34,7 +36,19 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Event = new Event();
+        if($request->hasFile('image')) {
+            $images = $request->file('image');
+            $path = $images->getClientOriginalName();
+            $name = time() . '-' . $path;
+            $images->storeAs('/public/images', $name);
+            $Event->image = $name;
+          }
+        $Event->name = $request;
+        $Event->start_date = $request;
+        $Event->Location = $request;
+        $Event->Status = 2;
+        $Event->save();
     }
 
     /**
@@ -45,7 +59,8 @@ class EventsController extends Controller
      */
     public function show($id)
     {
-        //
+        $Event = Event::find($id);
+        return $Event;
     }
 
     /**
@@ -56,7 +71,8 @@ class EventsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Event = Event::find($id);
+        return $Event;
     }
 
     /**
@@ -68,7 +84,19 @@ class EventsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $Event = Event::find($id);
+        if($request->hasFile('image')) {
+            $images = $request->file('image');
+            $path = $images->getClientOriginalName();
+            $name = time() . '-' . $path;
+            $images->storeAs('/public/images', $name);
+            $Event->image = $name;
+          }
+        $Event->name = $request;
+        $Event->start_date = $request;
+        $Event->Location = $request;
+        $Event->Status = 2;
+        $Event->save();
     }
 
     /**
@@ -79,6 +107,7 @@ class EventsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $values = Event::find($id);
+        $values->delete();
     }
 }

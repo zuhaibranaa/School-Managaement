@@ -44,8 +44,6 @@ class AdmissionController extends Controller
         $Admission->Education = $request;
         $Admission->Status = 2;
         $Admission->save();
-
-
     }
 
     /**
@@ -56,7 +54,8 @@ class AdmissionController extends Controller
      */
     public function show($id)
     {
-        //
+        $Admission = Admission::find($id);
+        return $Admission;
     }
 
     /**
@@ -67,7 +66,8 @@ class AdmissionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Admission = Admission::find($id);
+        return $Admission;
     }
 
     /**
@@ -79,7 +79,14 @@ class AdmissionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $Admission = Admission::find($id);
+        $Admission->Name = $request;
+        $Admission->Phone = $request;
+        $Admission->Email = $request;
+        $Admission->City = $request;
+        $Admission->Education = $request;
+        $Admission->Status = 2;
+        $Admission->save();
     }
 
     /**

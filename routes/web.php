@@ -22,3 +22,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/courses', CoursesController::class);
+Route::resource('/admissions', AdmissionController::class);
+Route::resource('/events', EventsController::class);
