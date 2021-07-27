@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Admission;
 
 class AdmissionController extends Controller
 {
@@ -13,7 +14,8 @@ class AdmissionController extends Controller
      */
     public function index()
     {
-        //
+        $values = Admission::all();
+        return $values;
     }
 
     /**
@@ -34,7 +36,16 @@ class AdmissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Admission = new Admission();
+        $Admission->Name = $request;
+        $Admission->Phone = $request;
+        $Admission->Email = $request;
+        $Admission->City = $request;
+        $Admission->Education = $request;
+        $Admission->Status = 2;
+        $Admission->save();
+
+
     }
 
     /**
@@ -79,6 +90,7 @@ class AdmissionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $values = Admission::find($id);
+        $values->delete();
     }
 }
