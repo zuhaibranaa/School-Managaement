@@ -18,19 +18,10 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('image');
-            $table->string('Country');
-            $table->string('DOB');
-            $table->unsignedBigInteger('status')->unsigned();
-            $table->unsignedBigInteger('role')->unsigned();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-        });
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreign('role')->references('id')->on('roles')->onDelete('cascade');
-            $table->foreign('status')->references('id')->on('statuses')->onDelete('cascade');
         });
     }
 

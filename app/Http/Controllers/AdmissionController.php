@@ -25,7 +25,7 @@ class AdmissionController extends Controller
      */
     public function create()
     {
-        //
+        return view('admission');
     }
 
     /**

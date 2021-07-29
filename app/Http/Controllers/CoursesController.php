@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use PhpParser\Node\Stmt\Return_;
 
 class CoursesController extends Controller
 {
@@ -18,7 +19,8 @@ class CoursesController extends Controller
     public function index()
     {
         $values = Course::all();
-        return $values;
+        return view('allcourses')->with('courses',$values);
+        // return view('allcourses');
     }
 
     /**
@@ -28,7 +30,7 @@ class CoursesController extends Controller
      */
     public function create()
     {
-        //
+        return view('addcourse');
     }
 
     /**

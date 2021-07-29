@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\EventsController;
+use App\Http\Controllers\AdmissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +26,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('/courses', CoursesController::class);
 Route::resource('/admissions', AdmissionController::class);
 Route::resource('/events', EventsController::class);
+
