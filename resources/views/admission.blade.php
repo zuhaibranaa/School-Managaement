@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-3">Education:</label>
                             <div class="col-sm-9">
-                                <input type="text" name="educattion" class="form-control" placeholder="Enter your education">
+                                <input type="text" name="education" class="form-control" placeholder="Enter your education">
                             </div>
                         </div>
                         <div class="form-group">
