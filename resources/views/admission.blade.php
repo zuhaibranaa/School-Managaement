@@ -1,7 +1,8 @@
 @extends('new_layout.app')
 
 @section('content')
-<section class="c-all h-quote">
+ <!--SECTION START-->
+ <section class="c-all h-quote">
     <div class="container">
         <div class="col-md-6 col-sm-12 col-xs-12">
             <div class="all-title quote-title qu-new">
@@ -14,53 +15,47 @@
         <div class="col-md-6 col-sm-12 col-xs-12">
             <div class="n-form-com admiss-form">
                 <div class="col s12">
-                    <form class="form-horizontal">
+                    <form method="POST" action="{{ url('admissions') }}" class="form-horizontal">
+                        @csrf
                         <div class="form-group">
                             <label class="control-label col-sm-3">Full Name:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Enter your name" required="">
+                                <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-3">Phone:</label>
                             <div class="col-sm-9">
-                                <input type="number" class="form-control" placeholder="Enter your phone number" required="">
+                                <input type="number" name="number" class="form-control" placeholder="Enter your phone number" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-3">Email Id:</label>
                             <div class="col-sm-9">
-                                <input type="email" class="form-control" placeholder="Enter email" required="">
+                                <input type="email" name="email" class="form-control" placeholder="Enter email" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-3">Your City:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Enter your city">
+                                <input type="text" name="city" class="form-control" placeholder="Enter your city">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-3">Education:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Enter your education">
+                                <input type="text" name="educattion" class="form-control" placeholder="Enter your education">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-3">Course:</label>
                             <div class="col-sm-9">
-                                <div class="select-wrapper initialized"><span class="caret">▼</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-bd79258f-9d10-4b9c-2591-279e9421baf4" value="-- Select course --"><ul id="select-options-bd79258f-9d10-4b9c-2591-279e9421baf4" class="dropdown-content select-dropdown" style="width: 291px; position: absolute; top: 0px; left: 15px; opacity: 1; display: none;"><li class=""><span>-- Select course --</span></li><li class=""><span>Aerospace Engineering</span></li><li class=""><span>Agriculture Courses</span></li><li class=""><span>Fashion Technology</span></li><li class=""><span>Marine Engineering</span></li><li class=""><span>Building, Construction Management</span></li><li class=""><span>Web Development</span></li><li class=""><span>Accountant course</span></li><li class=""><span>Dot Net Development</span></li><li class=""><span>Java Development</span></li><li class=""><span>Chemical Engineering</span></li></ul><select class="initialized">
+                                <select name="course">
                             <option>-- Select course --</option>
-                            <option>Aerospace Engineering</option>
-                            <option>Agriculture Courses</option>
-                            <option>Fashion Technology</option>
-                            <option>Marine Engineering</option>
-                            <option>Building, Construction Management</option>
-                            <option>Web Development</option>
-                            <option>Accountant course</option>
-                            <option>Dot Net Development</option>
-                            <option>Java Development</option>
-                            <option>Chemical Engineering</option>
-                          </select></div>
+                            @foreach ($courses as $course)
+                                <option value="{{ $course->id }}">{{ $course->Course_Name }}</option>
+                            @endforeach
+                          </select>
                             </div>
                         </div>
                         <div class="form-group mar-bot-0">
@@ -74,4 +69,6 @@
         </div>
     </div>
 </section>
+<!--SECTION END-->
+
 @endsection

@@ -15,13 +15,13 @@
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CJosefin+Sans:600,700" rel="stylesheet">
     <!-- FONTAWESOME ICONS -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
     <!-- ALL CSS FILES -->
-    <link href="css/materialize.css" rel="stylesheet">
-    <link href="css/bootstrap.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="{{ asset('css/materialize.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
     <!-- RESPONSIVE.CSS ONLY FOR MOBILE AND TABLET VIEWS -->
-    <link href="css/style-mob.css" rel="stylesheet" />
+    <link href="{{ asset('css/style-mob.css') }}" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -152,7 +152,7 @@
         <div class="row">
             <!--== LOGO ==-->
             <div class="col-md-2 col-sm-3 col-xs-6 sb1-1">
-                <a href="index-2.html" class="logo"><img src="images/z-logo.png" alt="" />
+                <a href="index-2.html" class="logo"><img src="{{ asset('images/z-logo.png') }}" alt="" />
                 </a>
             </div>
             <!--== SEARCH ==-->
@@ -188,10 +188,10 @@
                 <!--== USER INFO ==-->
                 <div class="sb2-12">
                     <ul>
-                        <li><img src="images/placeholder.jpg" alt="">
+                        <li><img src="{{ asset("images/placeholder.jpg") }}" alt="">
                         </li>
                         <li>
-                            <h5>{{ auth()->user()['name'] }}<span> Santa Ana, CA</span></h5>
+                            <h5>{{ auth()->user()['name'] }}</h5>
                         </li>
                         <li></li>
                     </ul>
@@ -199,14 +199,22 @@
                 <!--== LEFT MENU ==-->
                 <div class="sb2-13">
                     <ul class="collapsible" data-collapsible="accordion">
-                        <li><a href="admin.html" class="menu-active"><i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard</a>
+                        <li><a href="{{ url('home') }}" class="@if (Request::is('home'))
+                            menu-active
+                        @endif"><i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard</a>
                         </li>
-                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book" aria-hidden="true"></i> All Courses</a>
+                        <li><a href="javascript:void(0)" class="collapsible-header @if (Request::is('courses/create') || Request::is('courses'))
+                            active
+                        @endif"><i class="fa fa-book" aria-hidden="true"></i> All Courses</a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
-                                    <li><a href="/courses">All Course</a>
+                                    <li><a class="@if (Request::is('courses'))
+                                        menu-active
+                                    @endif" href="{{ url('courses') }}">All Course</a>
                                     </li>
-                                    <li><a href="{{ url('courses/create') }}">Add New Course</a>
+                                    <li><a class="@if (Request::is('courses/create'))
+                                        menu-active
+                                    @endif" href="{{ url('courses/create') }}">Add New Course</a>
                                     </li>
                                 </ul>
                             </div>
@@ -238,10 +246,10 @@
             </div>
 @yield('content')
     <!--Import jQuery before materialize.js-->
-    <script src="js/main.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="{{ asset('js/main.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/materialize.min.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 
 

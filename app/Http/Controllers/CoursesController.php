@@ -8,9 +8,9 @@ use PhpParser\Node\Stmt\Return_;
 
 class CoursesController extends Controller
 {
-    // public function __construct(){
-    //     $this->middleware('auth');
-    // }
+    public function __construct(){
+            $this->middleware('auth');
+        }
     /**
      * Display a listing of the resource.
      *
@@ -41,22 +41,24 @@ class CoursesController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request;
         $course = new Course();
-        if($request->hasFile('image')) {
-            $images = $request->file('image');
-            $path = $images->getClientOriginalName();
-            $name = time() . '-' . $path;
-            $images->storeAs('/public/images', $name);
-            $course->image = $name;
-          }
-        $course->Course_Name = $request;
-        $course->Category = $request;
-        $course->Duration = $request;
-        $course->Start_Date = $request;
-        $course->End_Date = $request;
-        $course->Total_Seats = $request;
-        $course->Status_ID = $request;
+        // $name = null;
+        // if($request->hasFile('image')) {
+            // $images = $request->file('image')->getClientOriginalName();
+            // $name = time() . '-' . $images;
+            // $request->image->storeAs('/public/images', $name);
+        // }
+        // $course->image = $name;
+        $course->Course_Name = $request['Course_Name'];
+        $course->Category = $request['Category'];
+        $course->Duration = $request['Duration'];
+        $course->Start_Date = $request['Start_Date'];
+        $course->End_Date = $request['End_Date'];
+        $course->Total_Seats = $request['Total_Seats'];
+        $course->Status_ID = 1;
         $course->save();
+        return redirect('courses');
     }
 
     /**

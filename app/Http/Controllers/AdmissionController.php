@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admission;
+use App\Models\Course;
 
 class AdmissionController extends Controller
 {
@@ -25,7 +26,8 @@ class AdmissionController extends Controller
      */
     public function create()
     {
-        return view('admission');
+        $courses = Course::all();
+        return view('admission')->with('courses',$courses);
     }
 
     /**
@@ -37,11 +39,12 @@ class AdmissionController extends Controller
     public function store(Request $request)
     {
         $Admission = new Admission();
-        $Admission->Name = $request;
-        $Admission->Phone = $request;
-        $Admission->Email = $request;
-        $Admission->City = $request;
-        $Admission->Education = $request;
+        $Admission->Name = $request['name'];
+        $Admission->Phone = $request['number'];
+        $Admission->Email = $request['email'];
+        $Admission->City = $request['city'];
+        $Admission->Education = $request['education'];
+        $Admission->Course = $request['course'];
         $Admission->Status = 2;
         $Admission->save();
     }

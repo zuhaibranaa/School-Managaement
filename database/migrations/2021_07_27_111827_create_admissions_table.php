@@ -22,11 +22,13 @@ class CreateAdmissionsTable extends Migration
             $table->string('Email');
             $table->string('City');
             $table->string('Education');
+            $table->unsignedBigInteger('Course')->unsigned();
             $table->unsignedBigInteger('status')->unsigned();
             $table->timestamps();
         });
         Schema::table('admissions', function (Blueprint $table) {
             $table->foreign('status')->references('id')->on('statuses')->onDelete('cascade');
+            $table->foreign('Course')->references('id')->on('courses')->onDelete('cascade');
         });
     }
 

@@ -15,15 +15,15 @@
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CJosefin+Sans:600,700" rel="stylesheet">
     <!-- FONTAWESOME ICONS -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
     <!-- ALL CSS FILES -->
-    <link href="css/materialize.css" rel="stylesheet">
-    <link href="css/bootstrap.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="{{ asset('css/materialize.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
     <!-- RESPONSIVE.CSS ONLY FOR MOBILE AND TABLET VIEWS -->
-    <link href="css/style-mob.css" rel="stylesheet" />
+    <link href="{{ asset('css/style-mob.css') }}" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- WARNING: Responsw  2222222222222222222222222222ftr55555555556              qt55555555555555555555555555555555555pliiiiiiiiiiiiiiiiiiiiiiid.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
@@ -73,7 +73,7 @@
                             </ul>
                             <h4>All Pages</h4>
                             <ul>
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="{{ url('/') }}">Home</a></li>
                                 <li><a href="about.html">About us</a></li>
                                 <li><a href="admission.html">Admission</a></li>
                                 <li><a href="all-courses.html">All courses</a></li>
@@ -149,10 +149,10 @@
                     </div>
                     <div class="main-menu">
                         <ul>
-                            <li><a href="index.html">Home</a>
+                            <li><a href="{{ url('/') }}">Home</a>
                             </li>
                             <li class="about-menu">
-                                <a href="about.html" class="mm-arr">About us</a>
+                                <a href="{{ url('about') }}" class="mm-arr">About us</a>
                             </li>
                             <li class="admi-menu">
                                 <a href="admissions/create" class="mm-arr">Admission</a>
@@ -161,12 +161,8 @@
                             <!--<li><a class='dropdown-button ed-sub-menu' href='#' data-activates='dropdown1'>Courses</a></li>-->
 
 
-                            <li><a href="dashboard.html">Student</a>
-                                <li class="cour-menu">
-                                    <a href="#!" class="mm-arr">Admin Panel</a>
-                                </li>
-                            </li>
-                            <li><a href="contact-us.html">Contact us</a>
+                            <li><a href="">Student</a></li>
+                            <li><a href="{{ url('contact') }}">Contact us</a>
                             </li>
                         </ul>
                     </div>
@@ -437,10 +433,10 @@
     </section>
 
     <!--Import jQuery before materialize.js-->
-    <script src="js/main.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="{{ asset('js/main.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/materialize.min.js')}}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 
 
