@@ -219,27 +219,19 @@
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-user" aria-hidden="true"></i> Users</a>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-user" aria-hidden="true"></i> Students</a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
-                                    <li><a href="admin-user-all.html">All Users</a>
+                                    <li><a href="#">All Students</a>
                                     </li>
-                                    <li><a href="admin-user-add.html">Add New user</a>
+                                    <li><a href="#">Add New Student</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-bars" aria-hidden="true"></i> Admission menu</a>
-                        </li>
-                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-calendar" aria-hidden="true"></i> Events</a>
-                            <div class="collapsible-body left-sub-menu">
-                                <ul>
-                                    <li><a href="admin-event-all.html">All Events</a>
-                                    </li>
-                                    <li><a href="admin-event-add.html">Create New Events</a>
-                                    </li>
-                                </ul>
-                            </div>
+                        <li><a href="{{ url('admissions') }}" class="collapsible-header @if (Request::is('admissions'))
+                            menu-active
+                        @endif"><i class="fa fa-bars" aria-hidden="true"></i> Admission Requests</a>
                         </li>
                     </ul>
                 </div>

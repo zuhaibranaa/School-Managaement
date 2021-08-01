@@ -16,7 +16,7 @@ class AdmissionController extends Controller
     public function index()
     {
         $values = Admission::all();
-        return $values;
+        return view('manageadmissions')->with('courses',$values);
     }
 
     /**
@@ -47,6 +47,7 @@ class AdmissionController extends Controller
         $Admission->Course = $request['course'];
         $Admission->Status = 2;
         $Admission->save();
+        return back();
     }
 
     /**
