@@ -9,7 +9,7 @@
             </li>
             <li class="active-bre"><a href="#"> Admissions</a>
             </li>
-            <li class="page-back"><a href="index-2.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            <li class="page-back"><a href="{{ url('home') }}"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
             </li>
         </ul>
     </div>
@@ -52,7 +52,7 @@
                                         <td>
                                             {{-- <span class="label label-success">{{ App\Models\status::find($course['Status_ID'])['Name'] }}</span> --}}
                                         </td>
-                                        <td><a href="admin-course-details.html" class="ad-st-view">Edit</a></td>
+                                        <td><a href="admin-course-details.html" class="ad-st-view">Approve</a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>

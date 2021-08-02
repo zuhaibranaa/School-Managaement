@@ -122,5 +122,6 @@ class CoursesController extends Controller
     {
         $values = Course::find($id);
         $values->delete();
+        return back();
     }
 }
