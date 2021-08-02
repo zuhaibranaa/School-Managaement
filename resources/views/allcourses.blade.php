@@ -9,7 +9,7 @@
             </li>
             <li class="active-bre"><a href="#"> Dashboard</a>
             </li>
-            <li class="page-back"><a href="index-2.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            <li class="page-back"><a href="{{ url('home') }}"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
             </li>
         </ul>
     </div>
@@ -52,7 +52,7 @@
                                         <td>{{ $course['Total_Seats'] }}</td>
                                         <td>{{ App\Models\status::find($course['Status_ID'])['Name'] }}</td>
                                         <td>
-                                            <button class="label label-success">Edit</button>
+                                            <a href="{{ url('courses/'.$course['id'].'/edit') }}" class="label label-success" style="color: rgb(255, 255, 255)">Edit</a>
                                         </td>
                                         <td>
                                         <form id="delete" action="courses/{{ $course['id'] }}" method="POST">

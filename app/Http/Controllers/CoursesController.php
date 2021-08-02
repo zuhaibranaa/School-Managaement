@@ -82,7 +82,7 @@ class CoursesController extends Controller
     public function edit($id)
     {
         $values = Course::find($id);
-        return $values;
+        return view('editcourse')->with('val',$values);
     }
 
     /**
@@ -95,21 +95,15 @@ class CoursesController extends Controller
     public function update(Request $request, $id)
     {
         $course = Course::find($id);
-        if($request->hasFile('image')) {
-            $images = $request->file('image');
-            $path = $images->getClientOriginalName();
-            $name = time() . '-' . $path;
-            $images->storeAs('/public/images', $name);
-            $course->image = $name;
-          }
-        $course->Course_Name = $request;
-        $course->Category = $request;
-        $course->Duration = $request;
-        $course->Start_Date = $request;
-        $course->End_Date = $request;
-        $course->Total_Seats = $request;
-        $course->Status_ID = $request;
+        $course->Course_Name = $request['Course_Name'];
+        $course->Category = $request['Category'];
+        $course->Duration = $request['Duration'];
+        $course->Start_Date = $request['Start_Date'];
+        $course->End_Date = $request['End_Date'];
+        $course->Total_Seats = $request['Total_Seats'];
+        $course->Status_ID = 1;
         $course->save();
+        return redirect('courses');
     }
 
     /**
