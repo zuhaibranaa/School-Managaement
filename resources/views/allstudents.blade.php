@@ -7,7 +7,7 @@
         <ul>
             <li><a href="index-2.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
             </li>
-            <li class="active-bre"><a href="#"> Dashboard</a>
+            <li class="active-bre"><a href="#"> Students</a>
             </li>
             <li class="page-back"><a href="index-2.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
             </li>
@@ -20,7 +20,7 @@
             <div class="col-md-12">
                 <div class="box-inn-sp">
                     <div class="inn-title">
-                        <h4>Course Details</h4>
+                        <h4>All Students</h4>
                         <p>All about courses, program structure, fees, best course lists (ranking), syllabus, teaching techniques and other details.</p>
                     </div>
                     <div class="tab-inn">
@@ -28,13 +28,13 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Image</th>
-                                        <th>Course Name</th>
-                                        <th>Category</th>
-                                        <th>Duration</th>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        <th>Total Seats</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Phone</th>
+                                        <th>email</th>
+                                        <th>City</th>
+                                        <th>Country</th>
+                                        <th>Date Of Birth</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -45,12 +45,14 @@
                                         </td>
                                         <td><a href="admin-course-details.html"><span class="list-enq-name">{{ $course['Course_Name'] }}</span></a>
                                         </td>
-                                        <td>{{ $course['Category'] }}</td>
-                                        <td>{{ $course['Duration'] }}</td>
-                                        <td>{{ $course['Start_Date'] }}</td>
-                                        <td>{{ $course['End_Date'] }}</td>
-                                        <td>{{ $course['Total_Seats'] }}</td>
-                                        <td>{{ App\Models\status::find($course['Status_ID'])['Name'] }}</td>
+                                        <td>{{ $course['fname'] }}</td>
+                                        <td>{{ $course['lname'] }}</td>
+                                        <td>{{ $course['phone'] }}</td>
+                                        <td>{{ $course['email'] }}</td>
+                                        <td>{{ $course['City'] }}</td>
+                                        <td>{{ $course['Country'] }}</td>
+                                        <td>{{ $course['DOB'] }}</td>
+                                        <td>{{ App\Models\status::find($course['status'])['Name'] }}</td>
                                         <td>
                                             <button class="label label-success">Edit</button>
                                         </td>

@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+    public function __construct(){
+            $this->middleware('auth');
+        }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +18,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $users = Student::all();
+        return view('allstudents')->with('courses',$users);
     }
 
     /**
@@ -23,7 +29,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('addStudent');
     }
 
     /**
@@ -34,18 +40,24 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        Validator::make($request, [
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+        $student = new Student();
+        $student->fname = $request->fname;
+        $student->lname = $request->lname;
+        $student->password = $request->password;
+        $student->fname = $request->fname;
+        $student->fname = $request->fname;
+        $student->fname = $request->fname;
+        $student->fname = $request->fname;
+        $student->fname = $request->fname;
+        $student->fname = $request->fname;
+        $student->fname = $request->fname;
+        $student->save();
+        return redirect('students');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+
     }
 
     /**
@@ -79,6 +91,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student = Student::find($id);
+        $student->delete();
+        return back();
     }
 }

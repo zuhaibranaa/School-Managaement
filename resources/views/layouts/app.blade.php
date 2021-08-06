@@ -219,12 +219,18 @@
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-user" aria-hidden="true"></i> Students</a>
+                        <li><a href="javascript:void(0)" class="collapsible-header @if (Request::is('students') || Request::is('students/create'))
+                            active
+                        @endif"><i class="fa fa-user" aria-hidden="true"></i> Students</a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
-                                    <li><a href="#">All Students</a>
+                                    <li><a class="@if (Request::is('students'))
+                                        menu-active
+                                    @endif" href="{{ url('students') }}">All Students</a>
                                     </li>
-                                    <li><a href="#">Add New Student</a>
+                                    <li><a class="@if (Request::is('students/create'))
+                                        menu-active
+                                    @endif" href="{{ url('students/create') }}">Add New Student</a>
                                     </li>
                                 </ul>
                             </div>

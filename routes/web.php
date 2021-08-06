@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoursesController;
-use App\Http\Controllers\EventsController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AdmissionController;
 
 /*
@@ -31,5 +31,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/courses', CoursesController::class);
 Route::resource('/admissions', AdmissionController::class);
+Route::resource('/students', StudentController::class);
 // Route::resource('/events', EventsController::class);
 
